@@ -2,15 +2,19 @@ from __future__ import print_function, division
 import numpy as np
 import spectrum_generator as sg
 
+# input: ranges to consider for each parameter, observed spectrum's wavelength and flux arrays
+# output: combination of parameters within the range that correlates best with the observed spectrum
+
 def specCrossCorr(obswav, obsflux, minwav, maxwav, mass, linelist, min_temp, 
 max_temp, min_Bfield, max_Bfield, min_rotV, max_rotV, min_pressure, max_pressure):
 
+    # the min and max values are ranges for consideration (i.e. the code does not consider values outside these bounds)
     # wavelengths in nm, mass in amu, linelist = the .txt file
     # temp in K, B-field in T, rotV in km/s, pressure in atm
     # RV will not work unless implemented using the method in spectrum_generator 
     # obswav = wavelength array of observed spectrum
     # obsflux = flux array of observed spectrum
-    # obswav and obsflux must have the same number of elements, and must have the same number 
+    # obswav and obsflux must have the same number of elements, and both must have the same number 
     # of elements as the generated spectra. The generated spectra takes 1 value every 0.01 nm 
 
     # tests 6 values for each parameter to find a general range
