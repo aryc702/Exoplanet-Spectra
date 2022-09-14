@@ -9,12 +9,15 @@ k = 1.38*10**(-23)
 c = 299792458
 speclines = []
 
+# input: mass of compound, wavelength range to consider, temperature, B-field, rotational velocity (v sin i), RV, pressure, relative abundance of compound
+# output: graph of modified spectrum, reference blackbody curve, difference between spectrum and reference curve
+# output: returns the wavelength and flux/difference arrays. default is flux array
+
 def spectrum(mass, minwav, maxwav, temp, B_field, vsini, RV, pressure, rel_abd, plot=True, out="flux"):
   # mass in amu, all wavelengths in nm, temp in K, field in T, all V in km/s, pressure in atm
   # relative abundance as a decimal <= 1
   # plots the graphs if plot = True, default = True
-  # returns the wavelength and flux as 1D arrays if out = flux, if out = diff the difference
-  # between flux and blackbody is returned, default = flux
+  # returns the wavelength and flux as 1D arrays if out = flux, if out = diff the difference between flux and blackbody is returned, default = flux
   
   global bohrmag, h, k, c, speclines
 
